@@ -81,10 +81,10 @@ export default function AppShell({
       )}
 
       <main className={styles.main}>
-        <h1 className={styles.heading}>Задания с вознаграждением</h1>
+        <h1 className={styles.heading}>Актуальные задания</h1>
 
         <p className={styles.subheading}>
-          Выполняйте задания и получайте вознаграждения.
+          Лимит заданий: не более 5 в день
         </p>
 
         <div className={styles.grid}>
