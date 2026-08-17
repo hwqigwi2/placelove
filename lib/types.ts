@@ -1,10 +1,20 @@
+export type Marketplace = "wb" | "ozon";
+
 export interface Product {
-  /** Имя файла в public/products/ */
+  /** Уникальный ID товара */
   id: string;
+
+  /** Название товара */
   title: string;
+
+  /** Путь к изображению товара */
   image: string;
+
   /** Фиксированное вознаграждение в рублях */
   reward: number;
+
+  /** Маркетплейс товара */
+  marketplace: Marketplace;
 }
 
 export interface DbUser {

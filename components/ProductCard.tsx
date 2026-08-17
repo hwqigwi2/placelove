@@ -19,7 +19,15 @@ export default function ProductCard({
 }: ProductCardProps) {
   const [loaded, setLoaded] = useState(false);
 
-  const handleKeyDown = (e: React.KeyboardEvent) => {
+  const isOzon = product.marketplace === "ozon";
+
+  const marketplaceName = isOzon
+    ? "Ozon"
+    : "Wildberries";
+
+  const handleKeyDown = (
+    e: React.KeyboardEvent,
+  ) => {
     if (e.key === "Enter" || e.key === " ") {
       e.preventDefault();
       onSelect();
@@ -33,25 +41,71 @@ export default function ProductCard({
       tabIndex={0}
       onClick={onSelect}
       onKeyDown={handleKeyDown}
-      aria-label={`${product.title}, вознаграждение ${formatReward(product.reward)}`}
-      style={{ animationDelay: `${Math.min(index, 8) * 45}ms` }}
+      aria-label={`${product.title}, ${marketplaceName}, вознаграждение ${formatReward(product.reward)}`}
+      style={{
+        animationDelay: `${Math.min(index, 8) * 45}ms`,
+      }}
     >
       <div className={styles.imageWrap}>
-        {!loaded && <div className={styles.skeleton} aria-hidden="true" />}
+        {!loaded && (
+          <div
+            className={styles.skeleton}
+            aria-hidden="true"
+          />
+        )}
+
         <Image
           src={product.image}
           alt={product.title}
           fill
-          sizes="(max-width: 639px) 100vw, (max-width: 1024px) 50vw, 33vw"
+          sizes="(max-width: 639px) 50vw, (max-width: 1024px) 50vw, 33vw"
           priority={index < 3}
           onLoad={() => setLoaded(true)}
-          className={`${styles.image} ${loaded ? styles.imageLoaded : ""}`}
+          className={`${styles.image} ${
+            loaded ? styles.imageLoaded : ""
+          }`}
         />
+
+        <div
+          className={styles.marketplaceBadge}
+          aria-label={marketplaceName}
+        >
+          <Image
+            src={
+              isOzon
+                ? "/ozon.png"
+                : "/wb.png"
+            }
+            alt={marketplaceName}
+            width={72}
+            height={32}
+            className={styles.marketplaceLogo}
+          />
+        </div>
       </div>
+
       <div className={styles.info}>
-        <p className={styles.title}>{product.title}</p>
-        <p className={styles.reward}>{formatReward(product.reward)}</p>
-        <span className={styles.cta}>Выполнить</span>
+        <p className={styles.marketplaceName}>
+          {marketplaceName}
+        </p>
+
+        <p className={styles.title}>
+          {product.title}
+        </p>
+
+        <p className={styles.reward}>
+          + {formatReward(product.reward)}
+        </p>
+
+        <span
+          className={`${styles.cta} ${
+            isOzon
+              ? styles.ctaOzon
+              : styles.ctaWb
+          }`}
+        >
+          Выполнить
+        </span>
       </div>
     </div>
   );

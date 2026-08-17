@@ -53,49 +53,175 @@
   animation: shimmer 1.2s infinite linear;
 }
 
+/* Логотип маркетплейса поверх фотографии */
+.marketplaceBadge {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 2;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  min-width: 54px;
+  height: 34px;
+  padding: 4px 8px;
+
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 10px;
+
+  box-shadow:
+    0 2px 8px rgba(0, 0, 0, 0.12),
+    0 1px 2px rgba(0, 0, 0, 0.06);
+
+  backdrop-filter: blur(8px);
+}
+
+.marketplaceLogo {
+  width: auto;
+  height: 25px;
+  max-width: 64px;
+  object-fit: contain;
+}
+
+/* Информация под фотографией */
 .info {
   display: flex;
   flex-direction: column;
-  gap: 8px;
-  padding: 14px 14px 16px;
+  gap: 7px;
+  padding: 13px 14px 15px;
 }
 
+/* Wildberries / Ozon */
+.marketplaceName {
+  margin: 0;
+
+  font-size: 13px;
+  line-height: 1.2;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+
+  color: var(--text-secondary);
+}
+
+/* Название товара */
 .title {
   margin: 0;
+
   font-size: 15px;
   font-weight: 500;
   line-height: 1.35;
+
   display: -webkit-box;
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
   overflow: hidden;
+
   min-height: 2.7em;
 }
 
+/* Вознаграждение */
 .reward {
   margin: 0;
+
   font-size: 18px;
   font-weight: 800;
   color: var(--reward);
   letter-spacing: -0.01em;
 }
 
+/* Общая кнопка */
 .cta {
   display: flex;
   align-items: center;
   justify-content: center;
+
   min-height: 44px;
   margin-top: 2px;
+
   border-radius: var(--radius-md);
-  background: var(--accent);
+
   color: #fff;
   font-weight: 700;
   font-size: 15px;
+
   transition:
     background-color 150ms ease,
     transform 100ms ease;
 }
 
+/* WB — фиолетовая */
+.ctaWb {
+  background: #8b5cf6;
+}
+
+.card:hover .ctaWb {
+  background: #7c3aed;
+}
+
+/* Ozon — синяя */
+.ctaOzon {
+  background: #0069ff;
+}
+
+.card:hover .ctaOzon {
+  background: #0057d9;
+}
+
 .card:active .cta {
-  background: var(--accent-pressed);
+  transform: scale(0.98);
+}
+
+.card:active .ctaWb {
+  background: #6d28d9;
+}
+
+.card:active .ctaOzon {
+  background: #004fc7;
+}
+
+/* Небольшие экраны */
+@media (max-width: 639px) {
+  .marketplaceBadge {
+    top: 7px;
+    left: 7px;
+
+    min-width: 48px;
+    height: 29px;
+    padding: 3px 6px;
+
+    border-radius: 8px;
+  }
+
+  .marketplaceLogo {
+    height: 21px;
+    max-width: 54px;
+  }
+
+  .info {
+    gap: 6px;
+    padding: 10px 10px 11px;
+  }
+
+  .marketplaceName {
+    font-size: 11px;
+  }
+
+  .title {
+    font-size: 13px;
+    line-height: 1.3;
+    min-height: 2.6em;
+  }
+
+  .reward {
+    font-size: 15px;
+  }
+
+  .cta {
+    min-height: 38px;
+    border-radius: 11px;
+    font-size: 13px;
+  }
 }
