@@ -58,9 +58,7 @@ export async function POST(request: Request) {
         error: TOO_MANY_REQUESTS,
       },
       {
-        status: rate.misconfigured
-          ? 503
-          : 429,
+        status: 429,
       },
     );
   }

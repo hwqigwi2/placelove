@@ -49,9 +49,7 @@ export async function POST(request: Request) {
         error: TOO_MANY_REQUESTS,
       },
       {
-        status: rate.misconfigured
-          ? 503
-          : 429,
+        status: 429,
       },
     );
   }
@@ -120,13 +118,6 @@ export async function POST(request: Request) {
 
   const user = data as DbUser | null;
 
-  /*
-   * Даже если пользователь не найден,
-   * выполняем bcrypt.compare с фиктивным hash.
-   *
-   * Это уменьшает возможность определения
-   * существования email по времени ответа.
-   */
   const hashToCheck =
     user?.password_hash ??
     "$2b$10$C6UzMDM.H6dfI/f/IKcEeO7ZB9v6CpgGkXqK1yQfV0J0E3m5q7W8a";
