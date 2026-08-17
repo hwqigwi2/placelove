@@ -1,0 +1,41 @@
+.more {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 56px;
+  margin-top: 4px;
+  padding: 0 20px;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1.5px dashed var(--border);
+  color: var(--accent-dark);
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  outline: none;
+  animation: fade-up 320ms ease-out both;
+  animation-delay: 400ms;
+  transition:
+    background-color 150ms ease,
+    transform 100ms ease;
+}
+
+.more:active {
+  background: var(--accent-soft);
+  transform: scale(0.98);
+}
+
+.more:focus-visible {
+  box-shadow:
+    0 0 0 3px var(--accent-soft),
+    0 0 0 5px var(--accent);
+}
+
+.arrow {
+  transition: transform 150ms ease;
+}
+
+.more:active .arrow {
+  transform: translateX(4px);
+}
