@@ -94,7 +94,7 @@ export default function ProductCard({
         </p>
 
         <p className={styles.reward}>
-          + {formatReward(product.reward)}
+          {formatReward(product.reward)}
         </p>
 
         <span
