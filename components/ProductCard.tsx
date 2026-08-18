@@ -93,7 +93,13 @@ export default function ProductCard({
           {product.title}
         </p>
 
-        <p className={styles.reward}>
+        <p
+          className={`${styles.reward} ${
+            isOzon
+              ? styles.rewardOzon
+              : styles.rewardWb
+          }`}
+        >
           {formatReward(product.reward)}
         </p>
 
