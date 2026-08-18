@@ -42,12 +42,9 @@
   display: block;
   width: 100%;
   padding: 0;
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   overflow: hidden;
-  box-shadow: 0 10px 32px rgba(2, 8, 18, 0.45);
-  transition:
-    transform 100ms ease,
-    box-shadow 200ms ease;
+  transition: transform 100ms ease;
 }
 
 .balance:active {
@@ -62,9 +59,9 @@
 .statusCard {
   display: flex;
   flex-direction: column;
-  gap: 14px;
-  padding: 16px;
-  border-radius: var(--radius-lg);
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(148, 163, 196, 0.14);
 }
@@ -93,7 +90,7 @@
 }
 
 .statusText {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 700;
   color: #eef2fa;
 }
@@ -102,7 +99,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  min-height: 48px;
+  min-height: 44px;
   border-radius: var(--radius-md);
   background: var(--accent);
   color: #fff;

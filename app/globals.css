@@ -1,7 +1,8 @@
 :root {
   /* Тёмно-синий фон Telegram Mini App: сверху светлее, книзу темнее */
-  --bg-top: #0f2a4c;
-  --bg-bottom: #060f1e;
+  --bg-top: #10284a;
+  --bg-middle: #0b1d36;
+  --bg-bottom: #06111f;
   --surface: #ffffff;
   --surface-muted: #f0f1f5;
   --text: #17141f;
@@ -40,11 +41,11 @@ body {
   background: linear-gradient(
     180deg,
     var(--bg-top) 0%,
-    #0b2140 38%,
+    var(--bg-middle) 38%,
     var(--bg-bottom) 100%
   );
   background-attachment: fixed;
-  color: #f2f5fb;
+  color: #ffffff;
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue",
     Arial, sans-serif;

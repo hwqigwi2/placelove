@@ -101,10 +101,10 @@ export default function AppShell() {
               />
             </div>
 
-            <h1 className={styles.heading}>Актуальные задания</h1>
+            <h1 className={styles.heading}>Активные задания</h1>
 
             <p className={styles.subheading}>
-              Лимит заданий: не более 5 в день
+              Не более 5 заданий в день
             </p>
 
             <div className={styles.grid}>

@@ -25,7 +25,7 @@
 
 .imageWrap {
   position: relative;
-  aspect-ratio: 1178 / 1569;
+  aspect-ratio: 0.82;
   background: var(--surface-muted);
   overflow: hidden;
 }
@@ -111,7 +111,7 @@
   font-weight: 800;
   letter-spacing: -0.01em;
 
-  color: var(--text-secondary);
+  color: #6b7280;
 }
 
 /* Название товара */
@@ -119,8 +119,9 @@
   margin: 0;
 
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 700;
   line-height: 1.35;
+  color: #111827;
 
   display: -webkit-box;
   -webkit-line-clamp: 2;
@@ -139,7 +140,7 @@
 
   font-size: 18px;
   font-weight: 800;
-  color: var(--reward);
+  color: #16a34a;
   letter-spacing: -0.01em;
 }
 

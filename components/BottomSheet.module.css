@@ -47,6 +47,7 @@
   margin: 0;
   font-size: 20px;
   font-weight: 700;
+  color: #111827;
 }
 
 .close {
@@ -68,6 +69,7 @@
 
 .body {
   padding-top: 4px;
+  color: #4b5563;
 }
 
 @media (min-width: 640px) {

@@ -2,14 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 50;
-  background: linear-gradient(
-    180deg,
-    rgba(14, 33, 61, 0.92) 0%,
-    rgba(12, 28, 52, 0.82) 100%
-  );
+  background: rgba(16, 40, 74, 0.55);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(148, 163, 196, 0.1);
 }
 
 .inner {
@@ -38,7 +33,7 @@
   font-size: 19px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #f2f5fb;
+  color: #ffffff;
 }
 
 .profileButton {

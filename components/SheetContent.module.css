@@ -79,6 +79,7 @@
 .infoValue {
   font-size: 15px;
   font-weight: 600;
+  color: #111827;
   word-break: break-all;
 }
 
@@ -91,6 +92,7 @@
   background: var(--surface-muted);
   font-size: 15px;
   font-weight: 600;
+  color: #111827;
 }
 
 .dot {

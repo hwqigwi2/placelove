@@ -27,10 +27,9 @@
 }
 
 .banner {
-  border-radius: var(--radius-lg);
+  border-radius: 18px;
   overflow: hidden;
   margin-bottom: 20px;
-  box-shadow: 0 12px 36px rgba(2, 8, 18, 0.4);
   animation: fade-up 260ms ease-out both;
 }
 
@@ -44,14 +43,14 @@
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #f2f5fb;
+  color: #ffffff;
   animation: fade-up 260ms ease-out both;
 }
 
 .subheading {
   margin: 0 0 18px;
   font-size: 15px;
-  color: rgba(214, 222, 238, 0.6);
+  color: rgba(255, 255, 255, 0.62);
   animation: fade-up 260ms ease-out both;
   animation-delay: 40ms;
 }

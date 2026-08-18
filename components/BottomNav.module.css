@@ -4,10 +4,10 @@
   right: 0;
   bottom: 0;
   z-index: 60;
-  background: rgba(8, 18, 34, 0.86);
+  background: rgba(6, 17, 31, 0.68);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(148, 163, 196, 0.14);
+  border-top: 1px solid rgba(148, 163, 196, 0.08);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 
@@ -25,8 +25,8 @@
   align-items: center;
   justify-content: center;
   gap: 3px;
-  min-height: 58px;
-  color: rgba(214, 222, 238, 0.55);
+  min-height: 56px;
+  color: rgba(255, 255, 255, 0.5);
   font-size: 11px;
   font-weight: 600;
   transition:
@@ -39,7 +39,7 @@
 }
 
 .item.active {
-  color: var(--accent-light);
+  color: var(--accent);
 }
 
 .label {
