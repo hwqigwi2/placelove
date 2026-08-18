@@ -38,14 +38,14 @@ export default function Profile({ user }: ProfileProps) {
 
   return (
     <section className={styles.section}>
-      <div className={styles.identity}>
-        <Avatar user={user} size={84} />
-        <h1 className={styles.name}>{user?.first_name ?? "Гость"}</h1>
-        {user?.username ? (
-          <p className={styles.username}>@{user.username}</p>
-        ) : (
-          <p className={styles.usernameMuted}>Username не указан</p>
-        )}
+      <div className={styles.card}>
+        <Avatar user={user} size={64} />
+        <div className={styles.cardText}>
+          <h1 className={styles.name}>{user?.first_name ?? "Гость"}</h1>
+          {user?.username && (
+            <p className={styles.username}>@{user.username}</p>
+          )}
+        </div>
       </div>
 
       <button
