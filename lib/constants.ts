@@ -1,7 +1,8 @@
 /** Единственная ссылка на менеджера в Telegram (активация аккаунта) */
 export const TELEGRAM_MANAGER_URL = "https://t.me/m/tGznXV-fNGIx";
 
-export const SESSION_COOKIE_NAME = "placelove_session";
+/** Минимальная сумма вывода — показывается в toast при тапе по балансу */
+export const MIN_WITHDRAWAL_RUB = 1000;
 
-/** Срок жизни сессии — ~30 дней */
-export const SESSION_MAX_AGE_SECONDS = 60 * 60 * 24 * 30;
+/** Сколько показывать toast о минимальном выводе (мс) */
+export const BALANCE_TOAST_MS = 5000;

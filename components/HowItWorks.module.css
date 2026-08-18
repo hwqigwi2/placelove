@@ -1,0 +1,116 @@
+.card {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 14px 16px;
+  border-radius: var(--radius-lg);
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(148, 163, 196, 0.14);
+  text-align: left;
+  transition:
+    background-color 150ms ease,
+    transform 100ms ease;
+}
+
+.card:active {
+  background: rgba(255, 255, 255, 0.1);
+  transform: scale(0.98);
+}
+
+.badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  background: rgba(139, 92, 246, 0.18);
+  color: var(--accent-light);
+  flex-shrink: 0;
+}
+
+.cardText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+  flex: 1;
+}
+
+.cardTitle {
+  font-size: 15px;
+  font-weight: 700;
+  color: #f2f5fb;
+}
+
+.cardSubtitle {
+  font-size: 13px;
+  color: rgba(214, 222, 238, 0.6);
+}
+
+.chevron {
+  color: rgba(214, 222, 238, 0.45);
+  flex-shrink: 0;
+}
+
+.sheetBody {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding-bottom: 8px;
+}
+
+.paragraph {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-secondary);
+}
+
+.steps {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 6px;
+}
+
+.step {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  background: var(--surface-muted);
+}
+
+.stepIcon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: var(--accent-soft);
+  color: var(--accent-dark);
+  flex-shrink: 0;
+}
+
+.stepBody {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  min-width: 0;
+}
+
+.stepTitle {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.stepText {
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-secondary);
+}

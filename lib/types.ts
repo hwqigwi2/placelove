@@ -17,11 +17,20 @@ export interface Product {
   marketplace: Marketplace;
 }
 
+/** Пользователь Telegram из подписанного initData */
+export interface TelegramUser {
+  id: number;
+  first_name: string;
+  username?: string;
+  photo_url?: string;
+}
+
 export interface DbUser {
   id: string;
-  email: string;
-  telegram_username: string;
-  password_hash: string;
+  telegram_id: number;
+  first_name: string;
+  username: string | null;
+  avatar_url: string | null;
   is_active: boolean;
   created_at: string;
   updated_at: string;
@@ -30,16 +39,20 @@ export interface DbUser {
 /** Только публичные поля, которые можно отдавать на клиент */
 export interface PublicUser {
   id: string;
-  email: string;
-  telegram_username: string;
+  telegram_id: number;
+  first_name: string;
+  username: string | null;
+  avatar_url: string | null;
   is_active: boolean;
 }
 
 export function toPublicUser(user: DbUser): PublicUser {
   return {
     id: user.id,
-    email: user.email,
-    telegram_username: user.telegram_username,
+    telegram_id: user.telegram_id,
+    first_name: user.first_name,
+    username: user.username,
+    avatar_url: user.avatar_url,
     is_active: user.is_active,
   };
 }

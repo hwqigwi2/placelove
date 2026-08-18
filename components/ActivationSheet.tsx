@@ -2,6 +2,7 @@
 
 import BottomSheet from "./BottomSheet";
 import { TELEGRAM_MANAGER_URL } from "@/lib/constants";
+import { haptic, openSmartLink } from "./telegram";
 import styles from "./SheetContent.module.css";
 
 interface ActivationSheetProps {
@@ -14,19 +15,21 @@ export default function ActivationSheet({
   onClose,
 }: ActivationSheetProps) {
   return (
-    <BottomSheet open={open} onClose={onClose} title="Необходимо активировать аккаунт">
+    <BottomSheet open={open} onClose={onClose} title="Активируйте аккаунт">
       <div className={styles.stack}>
         <p className={styles.text}>
-          Чтобы получить доступ к заданиям, напишите нашему менеджеру.
+          Чтобы получить доступ к заданиям, активируйте аккаунт у менеджера.
         </p>
-        <a
+        <button
+          type="button"
           className={styles.primaryLink}
-          href={TELEGRAM_MANAGER_URL}
-          target="_blank"
-          rel="noopener noreferrer"
+          onClick={() => {
+            haptic("impact");
+            openSmartLink(TELEGRAM_MANAGER_URL);
+          }}
         >
           Активировать аккаунт
-        </a>
+        </button>
       </div>
     </BottomSheet>
   );

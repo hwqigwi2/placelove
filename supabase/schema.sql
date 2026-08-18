@@ -1,28 +1,27 @@
 -- PlaceLove: схема базы данных (Supabase / PostgreSQL)
+-- Telegram Mini App: пользователь создаётся автоматически при первом
+-- открытии приложения (upsert по telegram_id). Email/паролей нет.
 -- Применить: Supabase Dashboard -> SQL Editor, или `supabase db push`.
-
--- Расширение для case-insensitive email
-create extension if not exists citext;
+--
+-- Если в базе уже есть старая таблица users (email/password_hash),
+-- сначала примените миграцию supabase/migrations/001_telegram_auth.sql.
 
 -- ---------------------------------------------------------------------------
 -- Таблица users
--- Пароли хранятся ТОЛЬКО в виде bcrypt-хэша (password_hash).
+-- Идентификатор — telegram_id из подписанного Telegram initData.
 -- is_active всегда создаётся false; активация выполняется вручную менеджером
--- (автоматической активации в приложении нет).
+-- (автоматической активации в приложении нет, upsert её не сбрасывает).
 -- ---------------------------------------------------------------------------
 create table if not exists public.users (
   id uuid primary key default gen_random_uuid(),
-  email citext unique not null,
-  telegram_username text not null,
-  password_hash text not null,
+  telegram_id bigint unique not null,
+  first_name text not null,
+  username text,
+  avatar_url text,
   is_active boolean not null default false,
   created_at timestamptz not null default now(),
   updated_at timestamptz not null default now()
 );
-
--- Индекс по lower(email) — дополнительная гарантия уникальности без учёта регистра
-create unique index if not exists users_email_lower_idx
-  on public.users (lower(email::text));
 
 -- Триггер updated_at
 create or replace function public.set_updated_at()

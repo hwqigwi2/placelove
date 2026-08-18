@@ -66,6 +66,13 @@ describe("products config", () => {
     }
   });
 
+  it("5 товаров Wildberries и 4 товара Ozon", () => {
+    const wb = PRODUCTS.filter((p) => p.marketplace === "wb");
+    const ozon = PRODUCTS.filter((p) => p.marketplace === "ozon");
+    expect(wb).toHaveLength(5);
+    expect(ozon).toHaveLength(4);
+  });
+
   it("у товара нет обычной цены", () => {
     for (const product of PRODUCTS) {
       expect(product).not.toHaveProperty("price");

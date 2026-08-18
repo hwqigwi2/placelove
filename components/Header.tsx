@@ -2,19 +2,16 @@
 
 import Image from "next/image";
 import type { PublicUser } from "@/lib/types";
+import Avatar from "./Avatar";
+import { haptic } from "./telegram";
 import styles from "./Header.module.css";
 
 interface HeaderProps {
   user: PublicUser | null;
-  onLoginClick: () => void;
   onProfileClick: () => void;
 }
 
-export default function Header({
-  user,
-  onLoginClick,
-  onProfileClick,
-}: HeaderProps) {
+export default function Header({ user, onProfileClick }: HeaderProps) {
   return (
     <header className={styles.header}>
       <div className={styles.inner}>
@@ -29,26 +26,17 @@ export default function Header({
           />
           <span className={styles.name}>PlaceLove</span>
         </div>
-        {user ? (
-          <button
-            type="button"
-            className={styles.profile}
-            onClick={onProfileClick}
-          >
-            <span className={styles.avatar} aria-hidden="true">
-              👤
-            </span>
-            <span className={styles.profileName}>{user.email}</span>
-          </button>
-        ) : (
-          <button
-            type="button"
-            className={styles.login}
-            onClick={onLoginClick}
-          >
-            Войти
-          </button>
-        )}
+        <button
+          type="button"
+          className={styles.profileButton}
+          onClick={() => {
+            haptic("selection");
+            onProfileClick();
+          }}
+          aria-label="Открыть профиль"
+        >
+          <Avatar user={user} size={36} />
+        </button>
       </div>
     </header>
   );

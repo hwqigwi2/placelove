@@ -24,97 +24,42 @@ function cleanup() {
   }
 }
 
-export interface RateLimitResult {
-  success: boolean;
-  misconfigured?: boolean;
-}
-
 function checkMemoryLimit(
   key: string,
   limit: number,
   windowMs: number,
-): RateLimitResult {
+): boolean {
   cleanup();
 
   const now = Date.now();
   const existing = buckets.get(key);
 
   if (!existing || existing.resetAt <= now) {
-    buckets.set(key, {
-      count: 1,
-      resetAt: now + windowMs,
-    });
-
-    return {
-      success: true,
-    };
+    buckets.set(key, { count: 1, resetAt: now + windowMs });
+    return true;
   }
 
   existing.count += 1;
-
-  return {
-    success: existing.count <= limit,
-  };
+  return existing.count <= limit;
 }
 
 /**
- * Login:
- * максимум 5 попыток в минуту
- * на комбинацию IP + email.
+ * Telegram auth: максимум 12 запросов в минуту на IP.
+ * Нагрузка крошечная (единичные пользователи в день), in-memory лимитера
+ * достаточно; реальная защита — HMAC-валидация initData на сервере.
  */
-export async function limitLogin(
-  ip: string,
-  email?: string,
-): Promise<RateLimitResult> {
-  const normalizedEmail =
-    email?.trim().toLowerCase() || "unknown";
-
-  return checkMemoryLimit(
-    `login:${ip}:${normalizedEmail}`,
-    5,
-    60_000,
-  );
+export function limitTelegramAuth(ip: string): boolean {
+  return checkMemoryLimit(`tg-auth:${ip}`, 12, 60_000);
 }
 
-/**
- * Registration:
- * максимум 5 попыток в час
- * на комбинацию IP + email.
- */
-export async function limitRegister(
-  ip: string,
-  email?: string,
-): Promise<RateLimitResult> {
-  const normalizedEmail =
-    email?.trim().toLowerCase() || "unknown";
-
-  return checkMemoryLimit(
-    `register:${ip}:${normalizedEmail}`,
-    5,
-    60 * 60_000,
-  );
-}
-
-export function getClientIp(
-  request: Request,
-): string {
-  const forwarded =
-    request.headers.get("x-forwarded-for");
+export function getClientIp(request: Request): string {
+  const forwarded = request.headers.get("x-forwarded-for");
 
   if (forwarded) {
-    const firstIp = forwarded
-      .split(",")[0]
-      ?.trim();
-
-    if (firstIp) {
-      return firstIp;
-    }
+    const firstIp = forwarded.split(",")[0]?.trim();
+    if (firstIp) return firstIp;
   }
 
-  const realIp =
-    request.headers
-      .get("x-real-ip")
-      ?.trim();
-
+  const realIp = request.headers.get("x-real-ip")?.trim();
   return realIp || "unknown";
 }
