@@ -6,7 +6,7 @@
   padding: 14px 16px;
   border-radius: var(--radius-lg);
   background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(148, 163, 196, 0.14);
+  border: 1px solid rgba(167, 139, 250, 0.12);
   text-align: left;
   transition:
     background-color 150ms ease,

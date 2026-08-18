@@ -21,7 +21,7 @@
   width: 100%;
   max-width: var(--container);
   margin: 0 auto;
-  padding: 14px 16px calc(96px + env(safe-area-inset-bottom, 0px));
+  padding: 12px 16px calc(96px + env(safe-area-inset-bottom, 0px));
   display: flex;
   flex-direction: column;
 }
@@ -39,7 +39,7 @@
 }
 
 .heading {
-  margin: 4px 0 4px;
+  margin: 0 0 6px;
   font-size: 24px;
   font-weight: 800;
   letter-spacing: -0.02em;
@@ -48,9 +48,9 @@
 }
 
 .subheading {
-  margin: 0 0 18px;
+  margin: 0 0 16px;
   font-size: 15px;
-  color: rgba(255, 255, 255, 0.62);
+  color: rgba(255, 255, 255, 0.55);
   animation: fade-up 260ms ease-out both;
   animation-delay: 40ms;
 }

@@ -4,10 +4,10 @@
   right: 0;
   bottom: 0;
   z-index: 60;
-  background: rgba(6, 17, 31, 0.68);
+  background: rgba(8, 5, 15, 0.72);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
-  border-top: 1px solid rgba(148, 163, 196, 0.08);
+  border-top: 1px solid rgba(167, 139, 250, 0.1);
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 

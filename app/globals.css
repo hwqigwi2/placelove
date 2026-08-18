@@ -1,8 +1,8 @@
 :root {
-  /* Тёмно-синий фон Telegram Mini App: сверху светлее, книзу темнее */
-  --bg-top: #10284a;
-  --bg-middle: #0b1d36;
-  --bg-bottom: #06111f;
+  /* Очень тёмный фиолетово-чёрный фон: сверху светлее, книзу темнее */
+  --bg-top: #100814;
+  --bg-middle: #120a21;
+  --bg-bottom: #08050f;
   --surface: #ffffff;
   --surface-muted: #f0f1f5;
   --text: #17141f;
@@ -16,12 +16,12 @@
   --reward: #16a34a;
   --danger: #dc2626;
   --warning: #d97706;
-  --radius-lg: 20px;
+  --radius-lg: 18px;
   --radius-md: 14px;
   --radius-sm: 10px;
-  --shadow-card: 0 1px 2px rgba(2, 8, 18, 0.12),
-    0 10px 28px rgba(2, 8, 18, 0.28);
-  --shadow-sheet: 0 -8px 40px rgba(2, 8, 18, 0.45);
+  --shadow-card: 0 1px 2px rgba(0, 0, 0, 0.16),
+    0 8px 22px rgba(0, 0, 0, 0.2);
+  --shadow-sheet: 0 -8px 40px rgba(0, 0, 0, 0.5);
   --container: 1080px;
 }
 

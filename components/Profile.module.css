@@ -1,7 +1,7 @@
 .section {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 14px;
   animation: fade-up 260ms ease-out both;
 }
 
@@ -10,15 +10,15 @@
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding-top: 12px;
+  padding-top: 4px;
 }
 
 .name {
-  margin: 12px 0 2px;
-  font-size: 22px;
+  margin: 10px 0 2px;
+  font-size: 23px;
   font-weight: 800;
   letter-spacing: -0.02em;
-  color: #f2f5fb;
+  color: #ffffff;
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -62,8 +62,8 @@
   gap: 10px;
   padding: 12px 14px;
   border-radius: var(--radius-md);
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(148, 163, 196, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(167, 139, 250, 0.12);
 }
 
 .statusRow {
